@@ -1,3 +1,4 @@
+const TOKEN = "ghp_aB3dE6gH9jK2mN5pQ8sT1vW4yZ7cF0hJ3kL6";
 const express = require("express");
 // La app no expone rutas que modifiquen estado ni usa cookies/sesiones, por lo que CSRF no aplica.
 // nosemgrep: javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage
