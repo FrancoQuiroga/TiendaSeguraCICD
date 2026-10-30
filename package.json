@@ -1,0 +1,24 @@
+{
+  "name": "tiendaseguracicd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrancoQuiroga/TiendaSeguraCICD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/FrancoQuiroga/TiendaSeguraCICD/issues"
+  },
+  "homepage": "https://github.com/FrancoQuiroga/TiendaSeguraCICD#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
