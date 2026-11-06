@@ -13,3 +13,5 @@ const resultado = Number(req.query.a) + Number(req.query.b);
 res.json({ resultado });
 });
 module.exports = { app, total };
+
+app.listen(3000);

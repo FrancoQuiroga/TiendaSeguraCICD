@@ -17,4 +17,22 @@ jobs:
       - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Start app
+        run: |
+          node app.js > /tmp/app.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS "http://localhost:3000/calcular?a=1&b=2" > /dev/null; then
+              echo "App is up"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "App did not start in time" >&2
+          cat /tmp/app.log >&2
+          exit 1
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.13.0
+        with:
+          target: 'http://localhost:3000'
+          allow_issue_writing: false
       - run: docker run --rm -v "$PWD":/src aquasec/trivy:latest config --exit-code 1 --severity HIGH,CRITICAL /src
